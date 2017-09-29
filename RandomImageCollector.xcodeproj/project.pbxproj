@@ -13,6 +13,7 @@
 		A939E74D1F7DB42700CF8900 /* RandomImageCollector.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A939E74B1F7DB42700CF8900 /* RandomImageCollector.xcdatamodeld */; };
 		A939E74F1F7DB42700CF8900 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A939E74E1F7DB42700CF8900 /* Assets.xcassets */; };
 		A939E7521F7DB42700CF8900 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A939E7501F7DB42700CF8900 /* LaunchScreen.storyboard */; };
+		A939E75B1F7DBB4000CF8900 /* ImageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A939E75A1F7DBB4000CF8900 /* ImageVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		A939E74E1F7DB42700CF8900 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A939E7511F7DB42700CF8900 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A939E7531F7DB42700CF8900 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A939E75A1F7DBB4000CF8900 /* ImageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 			isa = PBXGroup;
 			children = (
 				A939E7441F7DB42700CF8900 /* AppDelegate.swift */,
+				A939E75A1F7DBB4000CF8900 /* ImageVC.swift */,
 				A939E7461F7DB42700CF8900 /* ViewController.swift */,
 				A939E7481F7DB42700CF8900 /* Main.storyboard */,
 				A939E74E1F7DB42700CF8900 /* Assets.xcassets */,
@@ -139,6 +142,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A939E75B1F7DBB4000CF8900 /* ImageVC.swift in Sources */,
 				A939E7471F7DB42700CF8900 /* ViewController.swift in Sources */,
 				A939E74D1F7DB42700CF8900 /* RandomImageCollector.xcdatamodeld in Sources */,
 				A939E7451F7DB42700CF8900 /* AppDelegate.swift in Sources */,
