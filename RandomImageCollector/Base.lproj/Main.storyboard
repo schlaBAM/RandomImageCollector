@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Random Item Catalog-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController automaticallyAdjustsScrollViewInsets="NO" id="BYZ-38-t0r" customClass="ViewController" customModule="RandomImageCollector" customModuleProvider="target" sceneMemberID="viewController">
@@ -33,10 +33,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="j69-Xm-Yl9">
+                    <navigationItem key="navigationItem" title="Random Item Catalog" id="j69-Xm-Yl9">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="SO0-uw-UX5"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="FXY-lZ-Rsm">
                             <connections>
-                                <segue destination="kJO-XJ-l1l" kind="show" id="tRu-Ec-V90"/>
+                                <segue destination="kJO-XJ-l1l" kind="show" identifier="itemSegue" id="tRu-Ec-V90"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -76,6 +77,14 @@
                                     <action selector="addTapped:" destination="kJO-XJ-l1l" eventType="touchUpInside" id="Nn5-9A-YhJ"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8dn-Ul-gEQ">
+                                <rect key="frame" x="165" y="482" width="45" height="30"/>
+                                <state key="normal" title="Delete"/>
+                                <connections>
+                                    <action selector="addTapped:" destination="kJO-XJ-l1l" eventType="touchUpInside" id="1Si-RZ-8L6"/>
+                                    <action selector="deleteTapped:" destination="kJO-XJ-l1l" eventType="touchUpInside" id="OY3-qa-uY6"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -83,8 +92,10 @@
                             <constraint firstItem="BZa-Cd-ABa" firstAttribute="top" secondItem="U3D-uJ-Tqp" secondAttribute="top" constant="30" id="9uf-nn-g9i"/>
                             <constraint firstItem="soE-R2-04A" firstAttribute="centerX" secondItem="gyT-T4-TMl" secondAttribute="centerX" id="ZZ4-0g-3LP"/>
                             <constraint firstItem="soE-R2-04A" firstAttribute="width" secondItem="BZa-Cd-ABa" secondAttribute="width" id="m65-Jh-DoQ"/>
+                            <constraint firstItem="8dn-Ul-gEQ" firstAttribute="centerX" secondItem="gyT-T4-TMl" secondAttribute="centerX" id="u6z-sr-KTG"/>
                             <constraint firstItem="4TU-uM-qpB" firstAttribute="top" secondItem="soE-R2-04A" secondAttribute="bottom" constant="40" id="uuk-Ap-K3g"/>
                             <constraint firstItem="4TU-uM-qpB" firstAttribute="centerX" secondItem="gyT-T4-TMl" secondAttribute="centerX" id="vN1-gt-FwH"/>
+                            <constraint firstItem="8dn-Ul-gEQ" firstAttribute="top" secondItem="4TU-uM-qpB" secondAttribute="bottom" constant="18" id="xV4-Jb-bth"/>
                             <constraint firstItem="soE-R2-04A" firstAttribute="top" secondItem="BZa-Cd-ABa" secondAttribute="bottom" constant="40" id="y4F-cc-Zwu"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="U3D-uJ-Tqp"/>
@@ -104,6 +115,8 @@
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
+                        <outlet property="addButton" destination="4TU-uM-qpB" id="RAf-Ro-E1I"/>
+                        <outlet property="deleteButton" destination="8dn-Ul-gEQ" id="iTs-ZB-Pqp"/>
                         <outlet property="imageView" destination="BZa-Cd-ABa" id="nE8-ey-57r"/>
                         <outlet property="titleText" destination="soE-R2-04A" id="ibu-0Y-150"/>
                     </connections>

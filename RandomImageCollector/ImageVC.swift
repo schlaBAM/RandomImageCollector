@@ -12,13 +12,24 @@ class ImageVC: UIViewController, UIImagePickerControllerDelegate, UINavigationCo
 
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var titleText: UITextField!
+    @IBOutlet weak var addButton: UIButton!
+    @IBOutlet weak var deleteButton: UIButton!
     
     var imagePicker = UIImagePickerController()
+    var item : Item? = nil
     let appDel = (UIApplication.shared.delegate as! AppDelegate)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         imagePicker.delegate = self
+        
+        if item != nil {
+            imageView.image = UIImage(data: item!.image as! Data)
+            titleText.text = item!.title
+            addButton.setTitle("Update", for: .normal)
+        } else {
+            deleteButton.isHidden = true
+        }
 
     }
 
@@ -29,12 +40,26 @@ class ImageVC: UIViewController, UIImagePickerControllerDelegate, UINavigationCo
     
     @IBAction func cameraTapped(_ sender: Any) {
         imagePicker.sourceType = .camera
+        present(imagePicker, animated: true, completion: nil)
     }
     
     @IBAction func addTapped(_ sender: Any) {
-        let item = Item(context: appDel.persistentContainer.viewContext)
-        item.image = UIImagePNGRepresentation(imageView.image!)
-        item.title = titleText.text
+        if item == nil {
+            //add
+            let item = Item(context: appDel.persistentContainer.viewContext)
+            item.image = UIImagePNGRepresentation(imageView.image!)
+            item.title = titleText.text
+            appDel.saveContext()
+        } else {
+            //update
+            item!.image = UIImagePNGRepresentation(imageView.image!)
+            item!.title = titleText.text
+            appDel.saveContext()
+        }
+        navigationController?.popViewController(animated: true)
+    }
+    @IBAction func deleteTapped(_ sender: Any) {
+        appDel.persistentContainer.viewContext.delete(item!)
         appDel.saveContext()
         navigationController?.popViewController(animated: true)
     }

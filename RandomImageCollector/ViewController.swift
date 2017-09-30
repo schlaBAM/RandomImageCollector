@@ -39,7 +39,19 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let cell = UITableViewCell()
         let item = items[indexPath.row]
         cell.textLabel?.text = item.title
+        cell.imageView?.image = UIImage(data: item.image as! Data)
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let item = items[indexPath.row]
+        performSegue(withIdentifier: "itemSegue", sender: item)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let nextVC = segue.destination as! ImageVC
+        nextVC.item = sender as? Item
     }
 
 
